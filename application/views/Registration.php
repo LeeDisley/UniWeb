@@ -1,50 +1,71 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>User Registration Form</title>
-</head>
-
-<body>
-	<form method="post">
-		<table width="600" align="centre" border="1" cellspacing="5" cellpadding="5">
-	<tr>
-		<td colspan="2"><?php echo @$error;?></td>
-	</tr>
-	<tr>
-		<td width="230">Enter Your Name </td>
-		<td width="329"><input type="text" name="name"/></td>
-	</tr>
-	<tr>
-		<td>Enter Your Email </td>
-		<td><input type="text" name="email"/></td>
-	</tr>
-	<tr>
-		<td>Enter a Password </td>
-		<td><input type="password" name="pass"/></td>
-	</tr>
-	
-	<tr>
-		<td>Enter your mobile </td>
-		<td><input type="text" name="mobile"/></td>
-	</tr>
-	<tr>
-		<td>Select your Course</td>
-		<td>
-		<select name="course">
-			<option value="">Select Course</option>
-			<option>PHP</option>
-			<option>Java</option>
-			<option>Wordpress</option>
-		</select>
-		</td>
-	</tr>
-	
-	<tr>
-		<td colspan="2" align="centre">
-		<input type="submit" name="register" value="Register Me"/></td>
-		</tr>
-		</table>
-		</form>
-		</body>
-		</html>
-		
+<?php 
+$attributes = array('class' => 'form-signin');
+echo form_open('registration', $attributes); ?>
+    <h2 class="form-signin-heading">Please Register</h2>
+    <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">@</span>
+    <!-- <input type="text" name="username" id="username" class="form-control" placeholder="Username" required> -->
+    <?php 
+      $data = array(
+                'name'          => 'username',
+                'id'            => 'username',
+                'class'         => 'form-control',
+                'placeholder'   => 'Username'
+                //'required'      => 'required'
+            );
+        echo form_input($data);
+    ?>
+  </div>
+    <?php 
+    $attributes = array(
+                'class' => 'sr-only'
+        );
+    echo form_label('Email address', 'inputEmail', $attributes);
+ 
+      $data = array(
+                'type'          => 'email',
+                'name'          => 'email',
+                'id'            => 'inputEmail',
+                'class'         => 'form-control',
+                'placeholder'   => 'Email address'
+                //'required'      => 'required'
+            );
+        echo form_input($data);
+  
+    $attributes = array(
+                'class' => 'sr-only'
+        );
+    echo form_label('Password', 'inputPassword', $attributes);
+      $data = array(
+                'type'          => 'password',
+                'name'          => 'password',
+                'id'            => 'inputPassword',
+                'class'         => 'form-control',
+                'placeholder'   => 'Password'
+                //'required'      => 'required'
+            );
+        echo form_input($data);
+ 
+    $attributes = array(
+                'class' => 'sr-only'
+        );
+    echo form_label('Password Again', 'inputPassword', $attributes);
+      $data = array(
+                'type'          => 'password',
+                'name'          => 'passwordagain',
+                'id'            => 'inputPassword',
+                'class'         => 'form-control',
+                'placeholder'   => 'Password Again'
+                //'required'      => 'required'
+            );
+        echo form_input($data);
+ 
+        $data = array(
+                'class'         => 'btn btn-lg btn-primary btn-block',
+                'value'      => 'Register User'
+            );
+        echo form_submit($data);
+    ?>
+  <a class="btn btn-lg btn-primary btn-block" href="<?php echo base_url().'index.php/Login'; ?>">Back To Login</a>
+  
+  <?php echo form_close(); ?>

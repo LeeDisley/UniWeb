@@ -1,36 +1,39 @@
-<?php 
+<?php
 class Registration extends CI_Controller
 {
-	public function __construct()
-	{
-		parent::__construct();
-		$this->load->database();
-		$this->load->helper('url');
-	}
-	public function index()
-	{
-		if ($this->input->post('register'))
-		{
-			$n=$this->input->post('name');
-			$e=$this->input->post('email');
-			$p=$this->input->post('pass');
-			$m=$this->input->post('mobile');
-			$c=$this->input->post('course');
-			
-			$que=$this->db->query("select * from user where email='".$e."'");
-			$row=$que->num_rows();
-			if($row)
-			{
-				$data['error']="<h3 style='color:red'>This user already exists</h3>";
-			}
-			else
-			{
-				$que=$this->db->query("insert into user values('','$n','$e','$p','$m','$c')");
-				
-				$data['error']="<h3 style='color:blue'>Your account created successfully</h3>";
-			}
-		}
-	$this->load->view('registration',@$data);
-	}
-}
+  
+	
+  
+ 
+  public function index(){
+    if($this->session->login == 'true'){
+      redirect('/');
+    }
+    //echo "register";
+    $this->load->model('registration_model', 'auth');
+    $this->load->view('header');
+    $this->load->library('form_validation');
+    $this->form_validation->set_rules('username', 'Username', 'required|is_unique[users.username]');
+    $this->form_validation->set_rules('email', 'Email', 'required');
+    $this->form_validation->set_rules('password', 'Password', 'required');
+    $this->form_validation->set_rules('passwordagain', 'Password Confirmation', 'required|matches[password]');
+    
+    //$this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
+ 
+                if ($this->form_validation->run() == FALSE)
+                {
+                        $this->load->view('registration');
+                }
+                else
+                {
+                        $this->load->view('register-update');
+                }
+    //$this->load->view('registration');
+    $this->load->view('footer');
+  }
+  }
+ 
+  
+  
+
 ?>

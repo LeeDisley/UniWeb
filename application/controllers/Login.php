@@ -11,7 +11,7 @@ class Login extends CI_Controller
     function __construct() {
         parent::__construct();
         $this->load->model("Login_model", "login");
-        if(!empty($_SESSION['id_user']))
+        if(!empty($_SESSION['id']))
             redirect('home');
     }
  
@@ -20,7 +20,7 @@ class Login extends CI_Controller
             $result = $this->login->validate_user($_POST);
             if(!empty($result)) {
                 $data = [
-                    'id_user' => $result->id_user,
+                    'id' => $result->id,
                     'username' => $result->username
                 ];
  
