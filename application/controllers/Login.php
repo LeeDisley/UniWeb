@@ -12,7 +12,7 @@ class Login extends CI_Controller
         parent::__construct();
         $this->load->model("Login_model", "login");
         if(!empty($_SESSION['id']))
-            redirect('home');
+            redirect('newhome');
     }
  
     public function index() {
@@ -25,7 +25,7 @@ class Login extends CI_Controller
                 ];
  
                 $this->session->set_userdata($data);
-                redirect('home');
+                redirect('newhome');
             } else {
                 $this->session->set_flashdata('flash_data', 'Username or password is wrong, Please try again');
                 redirect('login');

@@ -19,8 +19,8 @@ class Home extends CI_Controller
  
     public function index() {
         $this->load->view('home');
-    }
- 
+	}
+	
     public function logout() {
         $data = ['id', 'username'];
         $this->session->unset_userdata($data);

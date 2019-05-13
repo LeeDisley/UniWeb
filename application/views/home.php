@@ -47,7 +47,6 @@
 </div>
 
 		<br></br>
-		<br></br>
 
 		
 		<h1>The Teaching Forum</h1>
@@ -59,13 +58,10 @@
         <h2>Welcome <?= $this->session->userdata('username') ?></h2>
 		
 		<br></br>
-		
+	
 		
 		<h3>Welcome to our forum where teachers can view and upload videos and comments based on their experience in teaching to help other members of the community.</h3>
 		
-		<br></br>
-			<br></br>
-				<br></br>
 				
 				
 				<h1>Online Forum... Ask your questions below: </h1>
