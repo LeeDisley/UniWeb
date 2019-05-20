@@ -46,15 +46,10 @@
         </div>
     </div>
 </div>
-
-
-
-	<br></br>
-	
 	
 <div id="wrap">
 <div id="header">
-<h1><a href="#"><marquee> Welcome To The Teaching Forum... Enjoy :)<p id="demo"></p>
+<h3><a href="#"><marquee> Welcome To The Teaching Forum... Enjoy :)<p id="demo"></p>
 
 <script>
 document.getElementById("demo").innerHTML = d;
@@ -65,23 +60,20 @@ document.getElementById("demo").innerHTML = d;
 
 </div>
 
-<br></br>
+
 		<center>
-		<img src="http://www.htmlcommentbox.com/storage/lg_14217195_education-teachers-forum-logo-2.jpg" alt="Logo" width="500" height="300" align="middle">
+		<img src="http://www.htmlcommentbox.com/storage/lg_14217195_education-teachers-forum-logo-2.jpg" alt="Logo" width="350" height="200" align="middle">
 		</center>
 	
 	
-<br></br>
+
 	
 	
 	<div style="text-align: center;">
 	<h1>Welcome to The Teaching Forum</h1>
-	
-	<br></br>
     
-    <h1 align="center">Login</h1>
+    <h2 align="center">Login</h2>
     
-    <br></br>
     
     <?php if(isset($_SESSION)) {
         echo $this->session->flashdata('flash_data');

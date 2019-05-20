@@ -2,38 +2,17 @@
 <html>
     <head>
         <meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Majister Video Upload</title>
-        <style type="text/css">
+        <link href='assets/css' rel='stylesheet' type='text/css'/>
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/style.css" />
+		 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
-            ::selection { background-color: #E13300; color: white; }
-            ::-moz-selection { background-color: #E13300; color: white; }
+            
+            
 
-            body {
-                background-color: #fff;
-                margin: 40px;
-                font: 13px/20px normal Helvetica, Arial, sans-serif;
-                color: #4F5155;
-            }            
-
-            #body {
-                margin: 0 15px 0 15px;
-            }
-
-            #container {
-                margin: 10px;
-                border: 1px solid #D0D0D0;
-                box-shadow: 0 0 8px #D0D0D0;
-            }
-
-            .error {
-                color: #E13300;
-            }
-
-            .success {
-                color: darkgreen;
-            }
-        </style>
-    </head>
+            
+     </head>
     <body>
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 		  <ul class="navbar-nav">
@@ -46,13 +25,25 @@
 			 <li class="nav-item">
 		      <a class="nav-link" href="questions">Q+A</a>
 		    </li>
-		  
+			<form action="search" method="get">
+			<input type="text" name="query" placeholder="Search Users"/>
+			<input type="submit" value="Search"/>
+			</form>
+			<!--<input type="text" class ="searchBox" id="searchBox"></input>
+			<input type="submit" value="Search" class="btnInput" id="btnInput"> </input> -->
+				
 		  </ul>
 		</nav>
+		
 	 <a href="<?= site_url('home/logout') ?>"><button type="submit">Log Out</button></a>
-        <div id="container">
+	
+		
+        <div id="container" class='container'>
+		<div class='row'>
+			<div class='col-md-6'>
             <h1>Majister Video Upload</h1>
 			<h2>Welcome <?= $this->session->userdata('username') ?></h2>
+			
             <div id="body">
                 <p>Select a video file to upload</p>
                 <?php
@@ -71,7 +62,8 @@
                       </object>';*/
 
                     //HTML5 video play
-                    echo '<video width="320" height="240" controls>
+					
+                    echo '<video width="320" height="240" autoplay controls>
                       <source src="' . $video_path . '/' . $video_name . '" type="' . $video_type . '">
                       Your browser does not support the video tag.
                       </video>';
@@ -95,8 +87,39 @@
                 echo form_close();
                 ?>
             </div>
+			</div>
+			<div class='col-md-6'>
+				<?php
+					$mysqli = new mysqli("localhost","root", "", "college");
+					$result = $mysqli->query ("SELECT description, filename, extension FROM videos WHERE owner = '$owner' ORDER BY videos_id DESC LIMIT 5" )
+						or die("SELECT error: ".mysql_error());
+					
+					print "<table border=1>\n"; 
+					while ($row = mysqli_fetch_array ($result))
+					{ 
+						$videos_field= $row['description'];
+						$video_show = base_url() . '/upload/' . $videos_field;
+						$descriptionvalue= $row['description'];
+						$fileextensionvalue= $row['extension'];
+						print "<tr>\n"; 
+						print "\t<td>\n"; 
+						echo "<font face=arial size=4/>$descriptionvalue</font>";
+						print "</td>\n";
+						print "\t<td>\n"; 
+						echo "<div align=center, float:right><video width='320' controls><source src='$video_show' type='video/$fileextensionvalue'>Your browser does
+						not support the video tag.</video></div>";
+						print "</td>\n";
+						print "</tr>\n"; 
+					} 
+					print "</table>\n"; 
+				?>
+			</div>
+			</div>
 
         </div>
+		
+		<div id="videoList">
+			
 		<!-- begin wwww.htmlcommentbox.com -->
  <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Form</a> is loading comments...</div>
  <link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />

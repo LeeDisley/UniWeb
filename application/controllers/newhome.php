@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * Description of VideoUpload
  *
- * @author https://www.roytuts.com
+ * @author https://www.roytuts.com messed about with by Lee Disley
  */
 class newhome extends CI_Controller {
 
@@ -13,7 +13,9 @@ class newhome extends CI_Controller {
     private $error;
     //variable for storing success message
     private $success;
-
+	
+	
+	
     function __construct() {
         parent::__construct();
         //load this to validate the inputs in upload form
@@ -29,8 +31,27 @@ class newhome extends CI_Controller {
     private function handle_success($succ) {
         $this->success .= $succ . "rn";
     }
-
+	
+	public function search() {
+		$term = isset($_GET['query'])?$_GET['query']: '';
+		$term = urlencode($term);
+		$website = urlencode("localhost/majister");
+		$redirect = "https://www.google.com/search?q=site%3A{$website}+{$term}";
+		header("Location: $redirect");
+		exit;
+	}
+	
+	
+	
     public function index() {
+		 
+		 /*$this->load->model('newhome_model');*/
+		 $owner = $this->session->userdata('id');
+		 	 
+		 
+		 
+		$owner = $this->session->userdata('id');
+		
         if ($this->input->post('video_upload')) {
             //set preferences
             //file upload destination
@@ -79,15 +100,32 @@ class newhome extends CI_Controller {
                 $data['video_name'] = $video_data['file_name'];
                 $data['video_path'] = $upload_path;
                 $data['video_type'] = $video_data['file_type'];
-                $this->handle_success('Video was successfully uploaded to direcoty <strong>' . $upload_path . '</strong>.');
+				$ext = pathinfo($video_data['file_name'], PATHINFO_EXTENSION);
+				
+				/*$owner = $this->session->userdata('id');*/
+				$query = $this->db->query ("INSERT INTO videos (description, filename, extension, owner) VALUES ('$video_data[file_name]', '$upload_path', '$ext', '$owner')");
+				/* My first tries at database insertion using a model did not work, so put it into the controller
+				$description = $video_data['file_name'];
+				$filename = $upload_path;
+				$extension = $video_data ['file_type'];
+				$owner = $this->session->userdata('id');
+				$this->load->model('newhome_model');*/
+                $this->handle_success('Video was successfully uploaded to database'); /*theres  r and n displayed at end of the word database
+				no idea where it has come from as yet*/
             }
         }
         //load the error and success messages
         $data['errors'] = $this->error;
         $data['success'] = $this->success;
+		$data['owner'] = $owner;
         //load the view along with data
         $this->load->view('newhome', $data);
+		
+		
+		
+		
     }
+	/* Logout function when button pressed */
 	public function logout() {
         $data = ['id', 'username'];
         $this->session->unset_userdata($data);

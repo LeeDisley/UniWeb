@@ -8,7 +8,7 @@ echo form_open('registration', $attributes); ?>
     <?php 
       $data = array(
                 'name'          => 'username',
-                'id'            => 'username',
+                'id'            => 'id',
                 'class'         => 'form-control',
                 'placeholder'   => 'Username'
                 //'required'      => 'required'
