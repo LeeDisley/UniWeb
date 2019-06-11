@@ -16,6 +16,9 @@ It was developed on a Windows PC, and my next steps include getting to grips wit
 The website is not finished fully as it did not fulfill all the requirements for the assignment, for example
 there is no SQL injection protection and other security concerns used, no root user password for the database etc, these are other future targets.
 
+**Screenshots**
+
+
 **Getting it to work (idiots guide required for assignment hand in)**
 
 To get this web application to work:
