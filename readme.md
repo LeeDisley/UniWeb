@@ -13,6 +13,7 @@ there is no SQL injection protection and other security concerns used, no root u
 Getting it to work (idiots guide required for assignment hand in)
 
 To get this web application to work:
+
 Install XAMPP on your system, this is available for Windows, Linux and Mac.
 When XAMPP loads it also loads MySQL and PHP.
 Copy the folder titled Majister into the htdocs folder in the XAMPP folder.
@@ -22,36 +23,59 @@ config button on the apache section, once the services needed have been started.
 size for files to upload by adding or changing to this:
 
 ; Maximum allowed size for uploaded files.
-; http://php.net/upload-max-filesize
+
+''; http://php.net/upload-max-filesize''
+
 upload_max_filesize=10000M
+
 post_max_size=10000M;
 
 The setup for the autoloader config files are set already.
 The database.php in the config folder needs to look like this:
 
 $active_group = 'default';
+
 $query_builder = TRUE;
 
 $db['default'] = array(
+
 	'dsn'	=> '',
+	
 	'hostname' => 'localhost',
+	
 	'username' => 'root',
+	
 	'password' => '',
+	
 	'database' => 'college',
+	
 	'dbdriver' => 'mysqli',
+	
 	'dbprefix' => '',
+	
 	'pconnect' => FALSE,
+	
 	'db_debug' => (ENVIRONMENT !== 'production'),
+	
 	'cache_on' => FALSE,
+	
 	'cachedir' => '',
+	
 	'char_set' => 'utf8',
+	
 	'dbcollat' => 'utf8_general_ci',
+	
 	'swap_pre' => '',
+	
 	'encrypt' => FALSE,
+	
 	'compress' => FALSE,
+	
 	'stricton' => FALSE,
+	
 	'failover' => array(),
 	'save_queries' => TRUE
+	
 );
 
 The schema for the database is stored in the Database exported file folder and will need importing into MySQL.  To do this create a new database in MySQL
