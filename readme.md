@@ -20,6 +20,9 @@ Install XAMPP on your system, this is available for Windows, Linux and Mac.
 When XAMPP loads it also loads MySQL and PHP.
 Copy the folder titled Majister into the htdocs folder in the XAMPP folder.
 
+Some changes to the code may be needed to get this to work on a Linux or Mac system as it was developed on a Windows System (i.e
+different slashes in file directory commands)
+
 PHP.ini needs changing to accept larger media files than it currently can.  This can be accessed via the XAMPP control panel by selecting the 
 config button on the apache section, once the services needed have been started.  Under the files upload section of PHP.ini, change the maximum
 size for files to upload by adding or changing to this:
