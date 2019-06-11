@@ -20,6 +20,13 @@ there is no SQL injection protection and other security concerns used, no root u
 
 ![image of login screen] (https://github.com/LeeDisley/UniWeb/tree/master/Screenshots/login.png)
 
+![image of registration screen] (https://github.com/LeeDisley/UniWeb/tree/master/Screenshots/registration.png)
+
+![image of user home page] (https://github.com/LeeDisley/UniWeb/tree/master/Screenshots/userpage.png)
+
+![images of login screen on mobile devices] (https://github.com/LeeDisley/UniWeb/tree/master/Screenshots/Mobiledev.png)
+
+
 **Getting it to work (idiots guide required for assignment hand in)**
 
 To get this web application to work:
