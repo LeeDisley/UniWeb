@@ -24,7 +24,7 @@ size for files to upload by adding or changing to this:
 
 ; Maximum allowed size for uploaded files.
 
-''; http://php.net/upload-max-filesize''
+'; http://php.net/upload-max-filesize'
 
 upload_max_filesize=10000M
 
