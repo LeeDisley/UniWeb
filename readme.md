@@ -6,6 +6,10 @@
 
 This Website was created to fulfill part of my Web Design assignment.  This was my first experience of using
 PHP, Bootstrap, HTML, CSS and a framework (Codeigniter), and I had to learn all these before progressing.
+
+The assignment was to create a video upload and commenting system for tutors to use to share videos of their lectures, and share
+knowledge and opinions on them.
+
 The assignment scored 66 out of 100 (66%), which along with the first assignment (the SRS at 57%) which comes to 61.5% overall (or 2:1)
 
 It was developed on a Windows PC, and my next steps include getting to grips with a Linux system for future web development.
