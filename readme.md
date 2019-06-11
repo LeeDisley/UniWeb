@@ -17,7 +17,8 @@ The website is not finished fully as it did not fulfill all the requirements for
 there is no SQL injection protection and other security concerns used, no root user password for the database etc, these are other future targets.
 
 **Screenshots**
-![image of login screen] (
+
+![image of login screen] (https://github.com/LeeDisley/UniWeb/tree/master/Screenshots/login.jpg)
 
 **Getting it to work (idiots guide required for assignment hand in)**
 
