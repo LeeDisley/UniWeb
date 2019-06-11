@@ -18,7 +18,7 @@ there is no SQL injection protection and other security concerns used, no root u
 
 **Screenshots**
 
-![image of login screen] (https://github.com/LeeDisley/UniWeb/tree/master/Screenshots/login.jpg)
+![image of login screen] (https://github.com/LeeDisley/UniWeb/tree/master/Screenshots/login.png)
 
 **Getting it to work (idiots guide required for assignment hand in)**
 
