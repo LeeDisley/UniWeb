@@ -24,7 +24,7 @@ there is no SQL injection protection and other security concerns used, no root u
 
 ![image of user home page] (https://github.com/LeeDisley/UniWeb/tree/master/Screenshots/userpage.png)
 
-![images of login screen on mobile devices] (https://github.com/LeeDisley/UniWeb/tree/master/Screenshots/Mobiledev.png)
+![image of login screen on mobile device (pixel 2)] (https://github.com/LeeDisley/UniWeb/tree/master/Screenshots/Mobiledev.png)
 
 
 **Getting it to work (idiots guide required for assignment hand in)**
